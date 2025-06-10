@@ -1,0 +1,607 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body as viewport container */
+body {
+    font-family: 'Reenie Beanie', cursive;
+    line-height: 1.6;
+    color: #2c2c2c;
+    background-color: #faf8f5;
+    min-height: 100vh;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Main content unit - centered as a cohesive block with safe areas */
+.page-unit {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 45px 60px; /* Added safe area padding - 25px buffer + 20px content */
+    margin: auto;
+}
+
+/* Corner Embellishments - Positioned with safe area buffer */
+.corner-embellishment {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    opacity: 0.7;
+    pointer-events: none;
+    user-select: none;
+}
+
+.top-left {
+    top: 20px;
+    left: 25px; /* Pushed in from edge */
+    background: url('media/corner1.png') no-repeat center;
+    background-size: contain;
+}
+
+.top-right {
+    top: 20px;
+    right: 25px; /* Pushed in from edge */
+    background: url('media/corner2.png') no-repeat center;
+    background-size: contain;
+}
+
+.bottom-right {
+    bottom: 20px;
+    right: 25px; /* Pushed in from edge */
+    background: url('media/corner3.png') no-repeat center;
+    background-size: contain;
+}
+
+.bottom-left {
+    bottom: 20px;
+    left: 25px; /* Pushed in from edge */
+    background: url('media/corner4.png') no-repeat center;
+    background-size: contain;
+}
+
+/* Copyright - Pinned to bottom center */
+.copyright {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.9rem;
+    color: #8a8a8a;
+    opacity: 0.7;
+    pointer-events: none;
+    user-select: none;
+    z-index: 10;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Back Navigation - With default outline */
+.back-nav {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.back-link {
+    color: #2c2c2c;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 18px;
+    border: 1px solid #2c2c2c; /* Thinner outline */
+    background-color: #faf8f5;
+}
+
+.back-link:hover {
+    background-color: #e8c5d4; /* Same beautiful pastel pink */
+    color: #2c2c2c; /* Keep dark text for readability */
+    border-color: #2c2c2c; /* Maintain black outline on hover */
+}
+
+
+/* Typography - Conditional alignment based on page */
+h1 {
+    font-size: 2.8rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+/* Homepage h1 (name) - centered */
+.name {
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-align: left; /* Left aligned within hero grid */
+}
+
+/* Other pages h1 - left aligned */
+body:not(.homepage) h1,
+.offerings h1,
+.cv h1 {
+    text-align: left;
+}
+
+/* Homepage h1 in about section - centered */
+.about h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+/* Homepage h2 - centered with decorative lines */
+.hero h2,
+.about h2 {
+    text-align: center;
+}
+
+.hero h2::after,
+.about h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #ccc 10%, 
+        #bbb 30%, 
+        #ccc 50%, 
+        #bbb 70%, 
+        #ccc 90%, 
+        transparent 100%);
+    margin: 0.5rem auto;
+    border-radius: 50%;
+    transform: rotate(-1deg);
+}
+
+/* Other pages h2 - left aligned, no decorative lines */
+.offerings h2,
+.cv h2 {
+    text-align: left;
+}
+
+.offerings h2::after,
+.cv h2::after {
+    display: none;
+}
+
+/* Tagline - special styling */
+.tagline {
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: #666;
+    font-style: italic;
+    line-height: 1.3;
+    text-align: left; /* Left aligned within hero grid */
+}
+
+.tagline::after {
+    display: none;
+}
+
+/* Paragraphs - conditional alignment */
+p {
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+/* Homepage paragraphs - centered */
+.hero p,
+.about p,
+.contact-section p {
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Other pages paragraphs - left aligned */
+.offerings p,
+.cv p {
+    text-align: left;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.intro {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 3rem;
+    font-size: 1.4rem;
+}
+
+/* Homepage intro - centered */
+.hero .intro,
+.about .intro {
+    text-align: center;
+}
+
+/* Other pages intro - left aligned */
+.offerings .intro,
+.cv .intro {
+    text-align: left;
+}
+
+/* Hero Section - Part of centered unit */
+.hero {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.5rem;
+    position: relative;
+}
+
+/* Hand-drawn style border for hero section */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #eee 5%, 
+        #ddd 15%, 
+        #eee 25%, 
+        #ddd 35%, 
+        #eee 45%, 
+        #ddd 55%, 
+        #eee 65%, 
+        #ddd 75%, 
+        #eee 85%, 
+        #ddd 95%, 
+        transparent 100%);
+    transform: rotate(0.2deg);
+}
+
+/* 1x2 Grid Container - Adjusted for larger photo */
+.hero-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Hero Photo Container - This creates the fixed oval "window" */
+.hero-photo {
+    width: 180px;
+    height: 220px;
+    border-radius: 90px / 100px;
+    border: 2px solid #ddd;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Headshot - This is the scalable image inside the fixed frame */
+.headshot {
+    height: 300px;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    border: none;
+    border-radius: 0;
+}
+
+/* Right Cell - Stacked Text and Buttons */
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Buttons - Updated with beautiful pastel pink hover */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    border: 2px solid #2c2c2c;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    min-width: 120px;
+    text-align: center;
+    font-family: 'Reenie Beanie', cursive;
+    background-color: #faf8f5;
+    color: #2c2c2c;
+}
+
+.btn:hover {
+    background-color: #e8c5d4; /* Beautiful pastel pink inspired by the flowers */
+    color: #2c2c2c; /* Keep dark text for readability */
+    border-color: #2c2c2c; /* Maintain black outline */
+}
+
+.btn.contact {
+    margin-top: 2rem;
+}
+
+/* About Section */
+.about {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    padding-top: 1.5rem;
+}
+
+/* Service Sections */
+.service-section {
+    margin-bottom: 3rem;
+}
+
+/* Tables */
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: white;
+    font-size: 1.1rem;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f8f8;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    color: #666;
+}
+
+tr:hover {
+    background-color: #fafafa;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .page-unit {
+        min-height: 90vh;
+        padding: 30px 40px 50px; /* Maintained safe area padding */
+    }
+
+    .corner-embellishment {
+        width: 30px;
+        height: 30px;
+    }
+
+    .top-left, .top-right {
+        top: 15px;
+    }
+
+    .bottom-left, .bottom-right {
+        bottom: 15px;
+    }
+
+    .top-left, .bottom-left {
+        left: 20px;
+    }
+
+    .top-right, .bottom-right {
+        right: 20px;
+    }
+
+    .copyright {
+        bottom: 15px;
+        font-size: 0.8rem;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+        max-width: 100%;
+        justify-items: center;
+    }
+
+    .hero-photo {
+        width: 140px;
+        height: 160px;
+        border-radius: 70px / 80px;
+        margin: 0 auto;
+        justify-self: center;
+    }
+
+    .hero-text {
+        align-items: center;
+        text-align: center;
+    }
+
+    .name {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .button-group {
+        justify-content: center;
+    }
+
+    .headshot {
+        width: 168px;
+        height: 192px;
+        object-position: center center;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .intro {
+        font-size: 1.3rem;
+    }
+
+    table {
+        font-size: 1rem;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-unit {
+        min-height: 95vh;
+        padding: 25px 35px 40px; /* Maintained safe area padding */
+    }
+
+    .corner-embellishment {
+        width: 25px;
+        height: 25px;
+    }
+
+    .top-left, .top-right {
+        top: 10px;
+    }
+
+    .bottom-left, .bottom-right {
+        bottom: 10px;
+    }
+
+    .top-left, .bottom-left {
+        left: 15px;
+    }
+
+    .top-right, .bottom-right {
+        right: 15px;
+    }
+
+    .copyright {
+        bottom: 10px;
+        font-size: 0.75rem;
+    }
+
+    .hero-grid {
+        justify-items: center;
+    }
+
+    .hero-photo {
+        width: 120px;
+        height: 140px;
+        border-radius: 60px / 70px;
+        margin: 0 auto;
+        justify-self: center;
+    }
+
+    .name {
+        font-size: 1.8rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 200px;
+        font-size: 1rem;
+    }
+
+    .headshot {
+        width: 144px;
+        height: 168px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    .intro {
+        font-size: 1.2rem;
+    }
+
+    .back-link {
+        font-size: 1rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+}
