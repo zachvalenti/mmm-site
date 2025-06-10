@@ -346,8 +346,8 @@ p {
     display: inline-block;
     padding: 12px 30px;
     text-decoration: none;
-    border: 2px solid #2c2c2c;
-    border-radius: 25px;
+    border: 1px solid #2c2c2c;
+    border-radius: 7.7px;
     transition: all 0.3s ease;
     font-size: 1.2rem;
     letter-spacing: 0.5px;
@@ -494,8 +494,8 @@ tr:hover {
     }
 
     .corner-embellishment {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
     }
 
     .top-left, .top-right {
@@ -617,8 +617,8 @@ tr:hover {
     }
 
     .corner-embellishment {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
     }
 
     .top-left, .top-right {
